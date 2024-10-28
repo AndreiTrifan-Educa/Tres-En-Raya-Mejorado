@@ -118,7 +118,10 @@ celdas.forEach((celda, index) => {
             
             if (tresEnRaya(arrayTabla)) {
                 alert("El jugador " + turno[0] + " ha ganado");
-            } else {
+            } else if(!tresEnRaya(arrayTabla) && !arrayTabla.flat().includes(null) 
+                && contadorX[1]==0 && contadorX[2]==0 && contadorO[1]==0 && contadorO[2]==0){
+                alert("Empate");
+            }else {
                 turno = (turno[0] === "x") ? "o1" : "x1"; // Cambia el turno
                 // turnoDiv.src = (turno === "x1") ? "assets/x1.png" : "assets/o1.png"; 
                 switch(turno){
@@ -142,6 +145,7 @@ celdas.forEach((celda, index) => {
                         break;
                 }
             }
+            
         }
     });
 });
